@@ -8,7 +8,7 @@ This API provides location data such as divisions, districts, upazilas, unions, 
 
 **Endpoint:**
 ```
-GET http://yourdomain.com/api_location/get/{type}/{parent_id}
+GET https://makobir.com.bd/location/get/{type}/{parent_id}
 ```
 
 ### Allowed Types and Use:
@@ -29,7 +29,7 @@ X-API-DOMAIN: your_website.com
 ### ✅ Example Request:
 ```bash
 curl -H "X-API-KEY: abcd1234" -H "X-API-DOMAIN: example.com" \
-     http://yourdomain.com/api_location/get/districts/1
+     https://makobir.com.bd/location/get/districts/1
 ```
 
 ### ✅ Example Response:
@@ -51,7 +51,7 @@ No API key required — allows client systems to retrieve a **single location na
 
 **Endpoint:**
 ```
-GET http://yourdomain.com/api_location/names/{type}/{id}
+GET https://makobir.com.bd/location/names/{type}/{id}
 ```
 
 ### Allowed Types:
@@ -63,7 +63,7 @@ GET http://yourdomain.com/api_location/names/{type}/{id}
 
 ### ✅ Example Request:
 ```
-GET http://yourdomain.com/api_location/names/division/1
+GET https://makobir.com.bd/location/names/division/1
 ```
 
 ### ✅ Example Response:
@@ -90,14 +90,14 @@ GET http://yourdomain.com/api_location/names/division/1
 
 ### PHP Example:
 ```php
-$response = file_get_contents("http://yourdomain.com/api_location/names/upazila/5");
+$response = file_get_contents("https://makobir.com.bd/location/names/upazila/5");
 $data = json_decode($response, true);
 echo $data['name'];
 ```
 
 ### JavaScript (Fetch):
 ```javascript
-fetch('http://yourdomain.com/api_location/names/union/12')
+fetch('https://makobir.com.bd/location/names/union/12')
   .then(res => res.json())
   .then(data => console.log(data.name));
 ```
@@ -105,7 +105,7 @@ fetch('http://yourdomain.com/api_location/names/union/12')
 ### Python (Requests):
 ```python
 import requests
-res = requests.get("http://yourdomain.com/api_location/names/village/99")
+res = requests.get("https://makobir.com.bd/location/names/village/99")
 print(res.json()["name"])
 ```
 

@@ -29,7 +29,7 @@
 </select>
 
 <script>
-const API_BASE = 'http://localhost/api_location/get/';
+const API_BASE = 'https://makobir.com.bd/location/get/';
 const API_KEY = '1';
 const API_DOMAIN = '2';
 

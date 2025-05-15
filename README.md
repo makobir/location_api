@@ -1,4 +1,4 @@
-**📘 Location API Documentation**
+**📘 Location API Documentation **
 
 This API provides location data such as divisions, districts, upazilas, unions, and villages. It supports both **authorized dependent dropdown fetching** and **public name retrieval** for a specific ID.
 

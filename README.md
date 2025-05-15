@@ -1,4 +1,4 @@
-# 📘 Location API Documentation
+**📘 Location API Documentation**
 
 This API provides location data such as divisions, districts, upazilas, unions, and villages. It supports both **authorized dependent dropdown fetching** and **public name retrieval** for a specific ID.
 
@@ -28,8 +28,7 @@ X-API-DOMAIN: your_website.com
 
 ### ✅ Example Request:
 ```bash
-curl -H "X-API-KEY: abcd1234" -H "X-API-DOMAIN: example.com" \
-     https://makobir.com.bd/location/get/districts/1
+curl -H "X-API-KEY: abcd1234" -H "X-API-DOMAIN: example.com"      https://makobir.com.bd/location/get/districts/1
 ```
 
 ### ✅ Example Response:
@@ -37,8 +36,8 @@ curl -H "X-API-KEY: abcd1234" -H "X-API-DOMAIN: example.com" \
 {
   "status": true,
   "data": [
-    {"id": 1, "name": "Dhaka"},
-    {"id": 2, "name": "Gazipur"}
+    {"id": 1, "name_en": "Dhaka", "name_bn": "ঢাকা"},
+    {"id": 2, "name_en": "Gazipur", "name_bn": "গাজীপুর"}
   ]
 }
 ```
@@ -72,7 +71,8 @@ GET https://makobir.com.bd/location/names/division/1
   "status": true,
   "type": "division",
   "id": 1,
-  "name": "Dhaka"
+  "name_en": "Dhaka",
+  "name_bn": "ঢাকা"
 }
 ```
 
@@ -92,21 +92,21 @@ GET https://makobir.com.bd/location/names/division/1
 ```php
 $response = file_get_contents("https://makobir.com.bd/location/names/upazila/5");
 $data = json_decode($response, true);
-echo $data['name'];
+echo $data['name_bn']; // অথবা $data['name_en']
 ```
 
 ### JavaScript (Fetch):
 ```javascript
 fetch('https://makobir.com.bd/location/names/union/12')
   .then(res => res.json())
-  .then(data => console.log(data.name));
+  .then(data => console.log(data.name_bn));
 ```
 
 ### Python (Requests):
 ```python
 import requests
 res = requests.get("https://makobir.com.bd/location/names/village/99")
-print(res.json()["name"])
+print(res.json()["name_bn"])
 ```
 
 ---
@@ -115,6 +115,7 @@ print(res.json()["name"])
 - Ensure your CodeIgniter `.htaccess` and routing is properly set.
 - No CORS restriction for public name endpoint. Consider adding `Access-Control-Allow-Origin: *`.
 - Public name route is useful when you have only IDs saved and want to show readable names.
+- Both `name_en` and `name_bn` are available for multilingual support.
 
 ---
 

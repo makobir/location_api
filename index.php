@@ -29,7 +29,7 @@
 </select>
 
 <script>
-const API_BASE = 'https://makobir.com.bd/location/get/';
+const API_BASE = 'http://localhost/api_location/get/';
 const API_KEY = '1';
 const API_DOMAIN = '2';
 
@@ -70,7 +70,7 @@ async function loadNext(type, parentId) {
     data.forEach(item => {
         const option = document.createElement('option');
         option.value = item.id;
-        option.textContent = item.name;
+        option.textContent = item.name_bn;
         select.appendChild(option);
     });
 }
@@ -81,7 +81,7 @@ async function loadNext(type, parentId) {
     divisions.forEach(item => {
         const option = document.createElement('option');
         option.value = item.id;
-        option.textContent = item.name;
+        option.textContent = item.name_bn;
         select.appendChild(option);
     });
 })();
@@ -92,8 +92,8 @@ async function loadNext(type, parentId) {
 
 
 <?php
-    $nameData = file_get_contents('http://localhost/api_location/names/division/1');
+    $nameData = file_get_contents('http://makobir.com.bd/location/names/division/1');
    // $nameJson = json_decode($nameData, true);
    // echo $nameJson['name']; // যেমন: ঢাকা
-    echo json_decode($nameData, true)['name'];
+    echo json_decode($nameData, true)['name_bn'];
 ?>
